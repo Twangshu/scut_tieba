@@ -1,0 +1,55 @@
+<!--miniprogram/pages/homeDetail/homeDetail.wxml-->
+<view class='container' >
+  <view class='container-content'>
+    <view class='user-info'>
+      <image class='user-head' src='{{replay.user.avatarUrl}}' mode='aspectFill'></image>
+      <view class='user-name-time'>
+        <view class='user-name'>{{replay.user.nickName}}</view>
+        <view class='user-publish-time'>{{replay.date}}</view>
+      </view>
+    </view>
+    <view class='content'>
+      <!-- 显示文本 -->
+        <text class='content-text'>{{replay.content}}</text>
+        <block wx:for="{{replay.images}}" wx:for-index="idx">
+          <image class='content-img' src='{{item}}' mode='aspectFill' bindtap="previewImg" data-index='{{idx}}'></image>
+        </block>
+    </view>
+  </view>
+  </view>
+   <view class='container-line'></view>
+   <view>{{length}}条回复</view>
+   <block wx:for="{{replay_in}}" wx:for-index="idx">
+     <view class='user-info'>
+        <image class='user-head' src='{{item.user.avatarUrl}}' mode='aspectFill'></image>
+        <view class='user-name-time'>
+          <view class='user-name'>{{item.user.nickName}}</view>
+          <view class='user-publish-time'>{{item.date}}</view>
+        </view>
+      </view>
+        <view class='content'>
+         <!-- 显示文本 -->
+          <text class='content-text' bindtap='onItemClick' data-replayid='{{item._id}}' data-openid='{{item._openid}}'>{{item.content}}</text>
+          <!-- 显示图片 -->
+          <scroll-view class='content-scroll' scroll-x='true'>
+            <block wx:for="{{item.images}}" wx:for-index="useridx">
+              <image class='content-img' src='{{item}}' bindtap="previewReImg"data-index='{{idx}}' data-useindex='{{useridx}}' mode='aspectFill'></image>
+            </block>
+          </scroll-view>
+        </view>
+        <view class='container-line'></view>
+      </block>
+         <view class='container-line'></view>
+<!-- 回复区 -->
+<view class="content">
+  <form bindsubmit="formSubmit">
+    <view class="text-content">
+      <view class='text-area'>
+        <textarea name="input-content" type="text" placeholder="输入回复内容" placeholder-class="holder" value="{{textContent}}" bindblur='getTextAreaContent'></textarea>
+      </view>
+    </view>
+   
+      <button class="btn" formType='submit'  open-type="getUserInfo">回复</button>
+
+  </form>
+</view>

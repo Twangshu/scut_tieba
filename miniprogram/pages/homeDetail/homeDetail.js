@@ -10,14 +10,17 @@ Page({
     id: '',
     openid: '',
     isLike: false,
-    replays:{}
+    replays:{},
+    replay_in:[{}],
+    test:[{id:123},{id:234}],
+    length:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+   
     that = this;
     that.data.id = options.id;
     that.data.openid = options.openid;
@@ -48,14 +51,24 @@ Page({
         },
         fail: console.error
       })
+   
 
   },
-
+  getReplay_in: function () {
+    // 获取里层回复列表
+   
+  },
   onShow: function() {
     // 获取回复列表
-    that.getReplay()
+    that.getReplay();
   },
-
+  onItemClick: function (event) {
+    var id = event.currentTarget.dataset.replayid;
+    var openid = event.currentTarget.dataset.openid;
+    wx.navigateTo({
+      url: "../replay_in/replay_in?id=" + id + "&openid=" + openid
+    })
+  },
   getReplay: function() {
     // 获取回复列表
     db.collection('replay')
@@ -65,13 +78,31 @@ Page({
       .get({
         success: function(res) {
           // res.data 包含该记录的数据
-          console.log(res)
           that.setData({
-            replays: res.data
+            replays: res.data,
+            length: res.data.length
           })
-        },
-        fail: console.error
+          for (var i = 0; i < that.data.length; i++) {
+            var up = "replay_in[" + i + "]";
+            console.log(that.data.replays[i]._id);
+            db.collection('replay_in')
+              .where({
+                r_id: that.data.replays[i]._id
+              })
+              .get({
+                success: function (res) {
+                  // res.data 包含该记录的数据
+                  that.setData({
+                   [up] : res.data,
+                  })
+                  console.log(that.data.replay_in[0][0].id)
+                },
+                fail: console.error
+              })
+          }
+        }
       })
+        
   },
   /**
    * 刷新点赞icon
@@ -86,7 +117,6 @@ Page({
   previewImg: function(e) {
     //获取当前图片的下标
     var index = e.currentTarget.dataset.index;
-    console.log(index);
     wx.previewImage({
       //当前显示图片
       current: this.data.topic.images[index],
@@ -99,8 +129,6 @@ Page({
     //获取当前图片的下标
     var index = e.currentTarget.dataset.useindex;
     var idx = e.currentTarget.dataset.index;
-    console.log(idx);
-    console.log(index+"aaa");
     wx.previewImage({
       //当前显示图片
       current: this.data.replays[idx].images[index],
@@ -112,7 +140,6 @@ Page({
    * 喜欢点击
    */
   onLikeClick: function(event) {
-    console.log(that.data.isLike);
     if (that.data.isLike) {
       // 需要判断是否存在
       that.removeFromCollectServer();
@@ -132,7 +159,6 @@ Page({
       },
       success: function(res) {
         that.refreshLikeIcon(true)
-        console.log(res)
       },
     })
   },

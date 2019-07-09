@@ -8,7 +8,8 @@
     "pages/history/history",
     "pages/collect/collect",
     "pages/advance/advance",
-    "pages/replay/replay"
+    "pages/replay/replay",
+    "pages/replay_in/replay_in"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -18,27 +19,27 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#d81e06",
+    "selectedColor": "#87CEFF",
     "backgroungColor": "#ffffff",
     "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "广场",
-        "iconPath": "images/tab/home_unselect.png",
-        "selectedIconPath": "images/tab/home_select.png"
+        "text": "帖子",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homes.png"
       },
       {
         "pagePath": "pages/publish/publish",
-        "text": "发布",
-        "iconPath": "images/tab/publish_unselect.png",
-        "selectedIconPath": "images/tab/publish_select.png"
+        "text": "发贴",
+        "iconPath": "images/publish.png",
+        "selectedIconPath": "images/publish_s.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "images/tab/me_unselect.png",
-        "selectedIconPath": "images/tab/me_select.png"
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me_s.png"
       }
     ]
   },

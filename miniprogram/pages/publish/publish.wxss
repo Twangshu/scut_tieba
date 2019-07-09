@@ -58,7 +58,7 @@ textarea {
   line-height: 45px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: rgb(113, 98, 250);
+  background-color: rgb(41, 117, 230);
   color: #fff;
   border-radius: 50px;
 }
@@ -67,7 +67,7 @@ textarea {
   width: 220px;
   height: 45px;
   line-height: 45px;
-  background-color: #d50310;
+  background-color: rgb(41, 117, 230);
   color: #fff;
   border-radius: 50px;
   margin-bottom: 20px;

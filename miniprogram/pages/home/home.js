@@ -35,7 +35,6 @@ Page({
       .get({
         success: function(res) {
           // res.data 是包含以上定义的两条记录的数组
-          console.log("数据：" + res.data)
           that.data.topics = res.data;
           that.setData({
             topics: that.data.topics,
@@ -57,8 +56,6 @@ Page({
   onItemClick: function(event) {
     var id = event.currentTarget.dataset.topicid;
     var openid = event.currentTarget.dataset.openid;
-    console.log(id);
-    console.log(openid);
     wx.navigateTo({
       url: "../homeDetail/homeDetail?id=" + id + "&openid=" + openid
     })
@@ -87,14 +84,12 @@ Page({
           if (res.data.length > 0) {
             for (var i = 0; i < res.data.length; i++) {
               var tempTopic = res.data[i];
-              console.log(tempTopic);
+
               temp.push(tempTopic);
             }
 
             var totalTopic = {};
             totalTopic = that.data.topics.concat(temp);
-
-            console.log(totalTopic);
             that.setData({
               topics: totalTopic,
             })

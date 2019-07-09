@@ -22,9 +22,20 @@
   line-height: 45px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: rgb(113, 98, 250);
+  background-color: rgb(41, 117, 230);
   color: #fff;
   border-radius: 50px;
+}
+.btn-replay {
+  width: 70px;
+  height: 30px;
+  line-height: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 300px;
+  background-color: rgb(234, 241, 251);
+  color: rgb(62, 130, 247);
+  right: 0
 }
 .container-content {
   display: flex;

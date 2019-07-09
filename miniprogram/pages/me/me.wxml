@@ -21,7 +21,7 @@
    <view class='line'></view>
   <view class='item' bindtap='onCollectClick'>
     <view class='icon'>
-      <image src='../../images/me/collect.png' style="width:22px;height:21px;"></image>
+      <image src='../../images/liked.png' style="width:22px;height:21px;"></image>
     </view>
     <view class='itemName'>
       <view>收藏列表</view>
@@ -33,7 +33,7 @@
   <view class='hr'></view>
   <view class='item' bindtap='onHistoryClick'>
     <view class='icon'>
-      <image src='../../images/me/history.png' style="width:22px;height:21px;"></image>
+      <image src='../../images/history.png' style="width:22px;height:21px;"></image>
     </view>
     <view class='itemName'>
       <view>发布历史</view>
@@ -44,19 +44,19 @@
    <view class='line'></view>
   <view class='item'>
     <view class='icon'>
-      <image src='../../images/me/invitation.png' style="width:22px;height:21px;"></image>
+      <image src='../../images/share.png' style="width:22px;height:21px;"></image>
     </view>
     <view class='itemName'>
       <view>邀请好友</view>
     </view>
     <view class='right' bindtap='clickInvitivation'>
-      <text class='opr'>一起来玩~</text>></view>
+      <text class='opr'>  </text>></view>
   </view>
   <view class='hr'></view>
   <!-- 产品意见 -->
   <view class='item'  bindtap='onAdvanceClick'>
     <view class='icon'>
-      <image src='../../images/me/advice.png' style="width:22px;height:21px;"></image>
+      <image src='../../images/advice.png' style="width:22px;height:21px;"></image>
     </view>
     <view class='itemName'>
       <view>产品意见</view>
